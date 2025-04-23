@@ -1,4 +1,4 @@
-* {
+* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,16 +7,14 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
+  line-height: 1.6; /* Better readability */
+  color: #333; /* Default text color */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
+  line-height: 1.2; /* Tighter line height for headings */
 }
 
 nav {
@@ -24,6 +22,10 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  background: white; /* Ensure nav is visible over content */
+  z-index: 1000; /* Prevent content overlap */
+  padding: 0.5rem 0; /* Add vertical padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 nav a {
@@ -33,32 +35,47 @@ nav a {
   text-decoration: none;
   font-size: 1.2em;
   color: firebrick;
-  border-bottom: 2px solid firebrick;
-  transition: 0.1s;
+  border-bottom: 2px solid transparent; /* Smooth hover transition */
+  transition: color 0.2s, border-color 0.2s;
 }
 
 nav a:hover,
 nav a:active {
   color: tomato;
-  border-bottom: 2px solid tomato;
+  border-bottom-color: tomato; /* Only animate border-color */
 }
 
 #home,
 #about {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   text-align: center;
-  height: 50vh;
   min-height: 400px;
-  padding: 1rem;
+  padding: 2rem; /* More breathing room */
 }
 
 #home {
   background-color: cornsilk;
+  height: 100vh; /* Full viewport height */
 }
 
 #about img {
   max-height: 50%;
+  border-radius: 8px; /* Soften edges */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add depth */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav a {
+    margin: 0 0.5rem; /* Reduce spacing on small screens */
+    font-size: 1em;
+  }
+  
+  #home, #about {
+    padding: 1rem;
+    min-height: 300px;
+  }
 }
